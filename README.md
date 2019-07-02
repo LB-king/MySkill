@@ -1,0 +1,2 @@
+# MySkill
+for daily collections

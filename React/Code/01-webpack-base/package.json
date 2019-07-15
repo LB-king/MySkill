@@ -1,5 +1,5 @@
 {
-  "name": "React",
+  "name": "01-webpack-base",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,11 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5"
-  }
+  "license": "ISC"
 }

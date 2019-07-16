@@ -53,10 +53,8 @@
 - **tree diff**：新旧两棵DOM树对比的过程，就是Tree Diff;当整棵DOM逐层对比完毕，则所有需要按需更新的元素，必然能够找到
 
 - **component diff**：在进行tree diff的时候，每一层的组件级别的对比叫做component diff
-
   - 如果对比前后，则**暂时**认为此组件不需要被更新
   - 如果对比前后，类型不同，则需要移除旧组件，创建新组件，并追加到页面上
-
 - **element diff**：在进行组件对比的时候，如果组件类型相同，则要进行元素级别的对比，这就叫做Element Diff
 ### 5.webpack创建应用
 
@@ -66,5 +64,90 @@ npm init -y
 
 1. 在项目根目录创建`src`源代码目录和`dist`产品目录
 
-​     
+2. 在`src`目录下新建`index.html`
+
+3. 安装webpack
+
+   ```shell
+   npm i webpack webpack-cli -D
+   ```
+
+   > 注意：卸载全局安装的webpack和webpack-cli失败
+   >
+   > `npm cache clean --force`清一下缓存
+
+   **webpack.config.js**
+
+   ```javascript
+   let path = require('path')
+   module.exports = {
+       mode:"production", //development
+       //自定义打包的入口文件
+       entry:path.resolve(__dirname,"./src/test.js")
+       //自定义打包的出口文件
+       output:{
+           path:path.resolve(__dirname,'bundle'),
+           filename:'b.js'
+       }
+   }
+   ```
+
+4. 注意：webpack 4.x提供了约定大于配置的概念；目的是为了减少配置文件的体积
+
+   - 默认约定了
+   - 打包入口是：`src`--->`index.js`
+   - 打包输出文件是：`dist`--->`main.js`
+   - `mode`必须要，选项`production`和`development`
+
+5. webpack-dev-server
+
+   ```shell
+   npm i webpack-dev-server -D
+   ```
+
+   > WDS打包好的main.js是托管到内存中；所以在项目根目录看不到；
+   >
+   > 但是我们可以认为在根目录中有一个main.js
+
+**package.json**
+
+```json
+{
+    "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+   	"dev": "webpack-dev-server --open firefox --port 8081 --progress --hot --compress --host 127.0.0.1"
+  }
+}
+```
+
+ie：`iexplore`
+
+6.html-webpack-plugin (在内存中生成index.html，它会将打包后的main.js自动导入到项目中)
+
+```javascript
+let path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const htmlPlugin = new HtmlWebpackPlugin({
+    template: path.join(__dirname, './src/index.html'),
+    filename: 'index.html' //生成的内存中首页的名称
+})
+module.exports = {
+    plugins: [
+        htmlPlugin
+    ]
+}
+```
+
+### 6.在项目中使用react
+
+安装`react`、`react-dom`
+
+```shell
+cnpm i react react-dom -S
+```
+
+
+
+- react:专门用于创建组件和虚拟dom，组件的生命周期都在这个包中
+- react-dom：专门进行dom操作的，最主要场景：ReactDom.render()
 

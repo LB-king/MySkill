@@ -146,8 +146,108 @@ module.exports = {
 cnpm i react react-dom -S
 ```
 
-
-
 - react:专门用于创建组件和虚拟dom，组件的生命周期都在这个包中
+
 - react-dom：专门进行dom操作的，最主要场景：ReactDom.render()
+
+创建虚拟dom元素
+
+```javascript
+React.createElement('h1',{id:'hello'},'内容')
+```
+
+- 参数1：创建元素的类型，字符串，表示元素的名称
+- 参数2：是一个对象或者null，表示当前dom元素的属性
+- 参数3：子节点(其他 虚拟dom 文本子节点)
+
+使用ReactDOM把虚拟dom插入到页面上
+
+```javascript
+ReactDOM.render(myElement,document.getElementById('app'))
+```
+
+- 参数1：要渲染的虚拟dom
+- 参数2：指定页面上的容器
+
+> 注意：项目目录使用小写，不然编译会有警告
+
+**渲染页面上dom元素最好的方式就是写html代码**
+
+```javascript
+const mydiv = <div id='mydiv'>这是div元素</div>
+//这是JSX语法 符合XML规范的js
+```
+
+在js中默认不允许写这种类似html一样的标记
+
+可以使用**babel**来转换这些js中的标签
+
+#### 6.1 JSX语法
+
+JSX的本质是运行的时候被转换成了React.createElement 形式来执行
+
+#### 6.2 安装babel
+
+1. 安装babel插件(babel-loader注意版本问题)
+
+
+```shell
+cnpm i babel-core babel-loader babel-plugin-transform-runtime -D
+cnpm i babel-loader@7 -D
+```
+
+```shell
+cnpm i babel-preset-env babel-preset-stage-0 -D
+```
+
+2. 安装能够识别转换jsx语法的包`babel-preset-react`
+
+```shell
+cnpm i babel-preset-react -D
+```
+
+3. 配置`webpack.config.js`
+
+   ```javascript
+   module.exports = {
+       mode:'development',
+       //所有第三方 模块的配置规则
+       //webpack默认只能处理.js后缀名类型的文件
+       module:{
+           rules:[
+               {
+                   test:/\.js|jsx$/,
+                   use:'babel-loader',
+                   exclude:/node_modules/
+               }
+           ]
+       }
+   }
+   ```
+
+4. 添加`.babelrc`配置文件
+
+```json
+{
+    "presets":["enc","statge-0","react"],
+    "plugins":["transform-runtime"]
+}
+```
+
+presets：语法
+
+plugins：插件
+
+#### 6.3 react基本用法
+
+```javascript
+let num = 99
+let str = 'string'
+let bool = true
+ReactDom.render(<div>
+<h2>{num}</h2>
+<h2>{str}</h2>
+<h2>{bool?'真':'假'}</h2>
+</div>,document.getElementById('app'))
+```
 

@@ -6,7 +6,7 @@ for daily collections
     "prettier.jsxSingleQuote": true,
     "prettier.semi": false,
     "prettier.singleQuote": true,
-    "vetur.format.defaultFormatter.html": 				"prettier",
+    "vetur.format.defaultFormatter.html":"prettier",
     "vetur.format.defaultFormatterOptions": {
         "prettier": {
             "semi": false,

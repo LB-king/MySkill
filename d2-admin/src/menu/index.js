@@ -17,11 +17,8 @@ import demoD2Crud from './modules/demo-d2-crud'
 // 第三方网页
 import demoFrame from './modules/demo-frame'
 
-import demoSkill from './modules/demo-skill'
-
 // 菜单 侧边栏
 export const menuAside = [
-  demoSkill,
   demoComponents,
   demoPlugins,
   demoCharts,
@@ -39,11 +36,6 @@ export const menuHeader = [
     path: '/index',
     title: '首页',
     icon: 'home'
-  },
-  {
-    path: '/skill',
-    title: '技能',
-    icon: 'umbrella'
   },
   {
     title: '功能',

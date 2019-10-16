@@ -1,0 +1,4 @@
+gui 代码乱码的问题
+解决： git config --global gui.encoding utf-8
+
+component(:is='currentComponent')

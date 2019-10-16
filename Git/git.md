@@ -3,6 +3,8 @@
 ```powershell
 git config --global user.name 'your name'
 git config --global user.email 'your email'
+git config user.name #查看用户
+git config user.email #查看邮箱
 ```
 
 #### 远程clone仓库
@@ -66,23 +68,34 @@ git config --global user.email 'your email'
 
 - 没有git add的情况 回到最近一次git commit的情况
 
-  ```powershell
+  ```shell
   git checkout -- readme.txt
   ```
 
 - 已经git add(还没有commit)的情况 回到最近一次git add的情况
 
-  ```powershell
+  ```shell
   git reset HEAD readme.txt
   git checkout readme.txt
   ```
 
 - 已经commit的情况
 
-  ```powershell
+  ```shell
   git reset --soft HEAD^
   git reset HEAD readme.txt
   git checkout readme.txt
   ```
 
   
+
+#### 合并分支
+
+```shell
+git branch
+git branch -b fenzhi #创建一个分支
+git checkout dev
+git merge fenzhi
+git push origin dev #将fenzhi合并到dev
+```
+

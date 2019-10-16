@@ -1,6 +1,6 @@
 {
   "name": "d2-admin",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
@@ -14,7 +14,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@d2-admin/filters-dayjs": "^1.0.3",
+    "@d2-admin/filters-dayjs": "^1.0.4",
     "@d2-projects/d2-crud": "^2.1.1",
     "@d2-projects/vue-table-export": "^1.0.1",
     "@d2-projects/vue-table-import": "^1.0.0",
@@ -24,7 +24,7 @@
     "countup.js": "^2.0.4",
     "dayjs": "^1.8.14",
     "echarts": "^4.2.1",
-    "element-ui": "^2.9.1",
+    "element-ui": "^2.11.1",
     "flex.css": "^1.1.7",
     "fuse.js": "^3.4.5",
     "github-markdown-css": "^3.0.1",

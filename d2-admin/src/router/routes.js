@@ -7,7 +7,6 @@ import components from './modules/components'
 import element from './modules/element'
 import filters from './modules/filters'
 import business from './modules/business'
-import skill from './modules/skill'
 
 import layoutHeaderAside from '@/layout/header-aside'
 
@@ -66,8 +65,7 @@ const frameIn = [
   components,
   element,
   filters,
-  business,
-  skill
+  business
 ]
 
 /**

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>数组方法</title>
+  </head>
+  <body>
+    <button id="btn">点击</button>
+    <script>
+      document.querySelector('#btn').addEventListener('click', () => {
+        click()
+      })
+      var isclick = true
+      function click() {
+        if (isclick) {
+          console.log(4444)
+          isclick = false
+          setTimeout(() => {
+            isclick = true
+          }, 3000)
+        }
+      }
+      let obj = {
+        foo: 'FOO',
+        bar: 'BAR'
+      }
+      let res = Object.values(obj)
+      // console.log(res)
+      // console.log(...res)
+      console.log([...res])
+
+      var arr = [111, 222, 333]
+      let mu = arr.includes(111)
+      console.log(mu)
+
+      //filter
+      let filter = [{ a: 111, b: 1111 }, { a: 222, b: 2222 }].filter(
+        item => item.a === 111
+      )
+      let find = [{ a: 111, b: 1111 }, { a: 222, b: 2222 }].find(
+        item => item.a === 111
+      )
+      console.log(filter)
+      console.log(find)
+
+      let maps = [111, 222, 333]
+      let rt = maps.map(res => {
+        return res === 222
+      })
+      console.log(rt)
+    </script>
+  </body>
+</html>
